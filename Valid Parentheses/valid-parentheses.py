@@ -1,15 +1,15 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         parentheses = {"[":"]", "{":"}", "(":")"}
-        op = []
+        next_parentheses = []
         for i in s:
             if val:=parentheses.get(i):
-                op.append(val)
-            elif op and i == op[-1]:
-                op.pop()
+                next_parentheses.append(val)
+            elif next_parentheses and i == next_parentheses[-1]:
+                next_parentheses.pop()
             else:
                 return False
-        return False if op else True
+        return False if next_parentheses else True
             
 if __name__ == "__main__":
-    print(Solution().isValid("({[]})"))
+    print(Solution().isValid("({[}]})"))
